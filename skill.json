@@ -1,0 +1,55 @@
+{
+  "name": "genpark-enterprise-executive-briefing-doc-synthesizer-skill",
+  "version": "1.0.0",
+  "description": "Enterprise Executive Briefing & Strategic Memo Deliverable Synthesizer (inspired by Tencent WorkBuddy Goal-to-Document Workflows). Transforms raw multi-source enterprise findings into comprehensive, structured executive briefings with auto-generated executive summaries, risk registers, decision matrices, and appendix citations.",
+  "tools": [
+    {
+      "name": "synthesize_executive_briefing_memo",
+      "description": "Synthesize goal-to-document deliverables: compile structured executive briefing memos, auto-format risk registers, synthesize decision options, and compute reading time budgets.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "synthesize_executive_briefing",
+              "compile_risk_matrix",
+              "format_decision_options",
+              "estimate_reading_metrics"
+            ],
+            "description": "Briefing document synthesis action."
+          },
+          "memo_title": {
+            "type": "string",
+            "description": "Title of executive briefing memo."
+          },
+          "author_role": {
+            "type": "string",
+            "description": "Author title or agent designation."
+          },
+          "raw_findings_text": {
+            "type": "string",
+            "description": "Source findings, research notes, or meeting synthesis."
+          },
+          "decision_options": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "List of strategic options for leadership decision."
+          },
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Identified risks with likelihood and severity."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
